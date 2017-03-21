@@ -1,0 +1,1 @@
+webpackJsonp([0],{2:function(e,t,a){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var n=a(0),s=a.n(n);document.write("It works.");new s.a({el:"#app",data:{message:"lvni 大哥",title:"原来我已经活了怎么久了"}})}},[2]);
