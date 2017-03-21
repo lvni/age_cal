@@ -1,19 +1,19 @@
 {
-  "name": "av",
+  "name": "年龄计算器",
   "version": "1.0.0",
-  "description": "yuliang test project",
+  "description": "我的年龄计算器",
   "main": "index.js",
   "scripts": {
     "test": "test"
   },
   "repository": {
     "type": "git",
-    "url": "@lvni"
+    "url": "https://github.com/lvni/age_cal.git"
   },
   "keywords": [
-    "haha"
+    "年龄计算器"
   ],
-  "author": "alleon",
+  "author": "lvni",
   "license": "ISC",
   "devDependencies": {
     "babel-core": "^6.24.0",
