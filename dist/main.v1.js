@@ -11909,6 +11909,7 @@ var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
         age: "",
         live_info: "",
         can_live_info: "",
+        show_result: false,
         long_time: 0,
         isActive: false,
         level_days: 0,
@@ -11935,6 +11936,7 @@ var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
                     birthDate.getDay()
                 );
                 me.isActive = true;
+                me.show_result = false;
                 setTimeout(function(){
                     me.isActive = false;
                     var live_now = computDateDiff(today , birthDate);
@@ -11944,7 +11946,7 @@ var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
                     me.can_live_info = live_hundred.days + "天," + live_hundred.weeks + "周," 
                                      + live_hundred.months + "月," + live_hundred.years + "年";
                     me.long_time = live_now.days / (live_now.days + live_hundred.days) * 100;
-
+                    me.show_result = true;
                 }, 300)
             }
         },

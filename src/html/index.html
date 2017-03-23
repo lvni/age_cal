@@ -10,12 +10,12 @@
     <div id="app" class="container">
         <div class="weui-cells_title">年龄计算器</div>   
         <div class="page__bd page__bd_spacing">
-             <input v-model="age" placeholder="点击选择您的生日" class="weui-input" v-on:click="showDatePicker"> 
+             <input v-model="age" placeholder="点击选择您的生日" class="weui-input" v-on:click="showDatePicker" readonly="readonly"> 
             <div class="button-sp-area">
                     <a href="javascript:;" class="weui-btn weui-btn_plain-primary" v-on:click="submitAge">确定</a>
             </div>
         </div>
-        <div class="result">
+        <div class="result" v-if="show_result">
             <p>
                  <div class="weui-progress">
                     <div class="weui-progress__bar">
