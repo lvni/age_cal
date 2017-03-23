@@ -37,22 +37,28 @@ var app = new Vue({
         age: "",
         live_info: "",
         can_live_info: "",
+        show_error: false,
         show_result: false,
         long_time: 0,
         isActive: false,
         level_days: 0,
         currentRoute: window.location.pathname
     },
+    
     methods: {
         submitAge: function(){
             var today = new Date();
             var birthDate = new Date(this.age);
             if (!this.age) {
                 console.log("请选择日期");
+                this.error_msg = "选择日期";
+                this.show_error = true;
                 return ;
             }
             if (today < birthDate) {
+                this.error_msg = "时间不能大于今天";
                 console.log("时间不能大于今天");
+                this.show_error = true;
                 return;
             } else {
                 /*100岁的时间 */
@@ -93,7 +99,10 @@ var app = new Vue({
                 me.age = result.join("/");
             }
         });
-        }
+    },
+    closeMsg: function(){
+        this.show_error = false;
+    }
 
     },
 });
