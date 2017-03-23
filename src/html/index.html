@@ -2,13 +2,21 @@
 <html lang="zh">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <title>年龄计算器</title>
+    <link rel="stylesheet" type="text/css"  href="https://res.wx.qq.com/open/libs/weui/1.1.1/weui.min.css">
 </head>
 <body>
-    <div id="app">
-    <p>输入您的出生日期:</p>
-    <input v-model="age" placeholder="格式：20170101"> 
-    <button>确定</button>
+    <div id="app" class="container">
+        <div class="weui-cells_title">年龄计算器</div>   
+        <p>输入您的出生日期:</p>
+        <div class="page__bd page__bd_spacing">
+             <input v-model="age" placeholder="格式：20170101" class="weui-input" type="date"> 
+            <div class="button-sp-area">
+                    <a href="javascript:;" class="weui-btn weui-btn_plain-primary" v-on:click="submitAge">确定</a>
+            </div>
+        </div>
     </div>
+    <script src="https://res.wx.qq.com/open/libs/weuijs/1.0.0/weui.min.js"></script>
 </body>
 </html>
