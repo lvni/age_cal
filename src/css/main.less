@@ -3,12 +3,26 @@
     font-size: 20px;
     margin-top: 34%;
 }
-.page__bd {
+.page__bd,.result {
     width: 60%;
     margin: 0 auto;
-    padding: 15px 0;
-
     >input {
-        margin: 15px 0 ;
+        margin: 25px 0 ;
+    }
+}
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s
+}
+.fade-enter, .fade-leave-active {
+  opacity: 0
+}
+.result {
+    padding-top: 30px;
+    line-height: 48px;
+    text-align: left;
+    >.title {
+        font-size: 22px;
+        color: #1aad19;
     }
 }

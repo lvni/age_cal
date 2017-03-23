@@ -11299,7 +11299,7 @@ exports = module.exports = __webpack_require__(7)(undefined);
 
 
 // module
-exports.push([module.i, "#app {\n  text-align: center;\n  font-size: 20px;\n  margin-top: 34%;\n}\n.page__bd {\n  width: 60%;\n  margin: 0 auto;\n  padding: 15px 0;\n}\n.page__bd > input {\n  margin: 15px 0 ;\n}\n", ""]);
+exports.push([module.i, "#app {\n  text-align: center;\n  font-size: 20px;\n  margin-top: 34%;\n}\n.page__bd,\n.result {\n  width: 60%;\n  margin: 0 auto;\n}\n.page__bd > input,\n.result > input {\n  margin: 25px 0 ;\n}\n.fade-enter-active,\n.fade-leave-active {\n  transition: opacity 0.5s;\n}\n.fade-enter,\n.fade-leave-active {\n  opacity: 0;\n}\n.result {\n  padding-top: 30px;\n  line-height: 48px;\n  text-align: left;\n}\n.result > .title {\n  font-size: 22px;\n  color: #1aad19;\n}\n", ""]);
 
 // exports
 
@@ -11890,11 +11890,15 @@ var computDateDiff = function (date_to, date_from) {
     var days = Math.floor(seconds / (24 * 3600));
     var weeks = Math.floor(days / 7);
     var years = date_to.getFullYear() - date_from.getFullYear();
+    
+    var months = years ?  ( (years - 1) * 12 +  date_to.getMonth() + 12 - date_from.getMonth())
+             : date_to.getMonth() - date_from.getMonth();
     return {
         days: days,
         weeks: weeks,
         years: years,
         seconds: seconds,
+        months: months
     };
 }
 
@@ -11903,6 +11907,11 @@ var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
     el : "#app",
     data: {
         age: "",
+        live_info: "",
+        can_live_info: "",
+        long_time: 0,
+        isActive: false,
+        level_days: 0,
         currentRoute: window.location.pathname
     },
     methods: {
@@ -11918,19 +11927,41 @@ var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
                 return;
             } else {
                 /*100岁的时间 */
+                var me = this;
                 var hundredYearsOldDate = new Date();
                 hundredYearsOldDate.setFullYear(
                     birthDate.getFullYear() + 100,
                     birthDate.getMonth(),
                     birthDate.getDay()
                 );
+                me.isActive = true;
+                setTimeout(function(){
+                    me.isActive = false;
+                    var live_now = computDateDiff(today , birthDate);
+                    me.live_info = live_now.days + "天," + live_now.weeks + "周," 
+                                 + live_now.months + "月," + live_now.years + "年";
+                    var live_hundred = computDateDiff(hundredYearsOldDate , today);
+                    me.can_live_info = live_hundred.days + "天," + live_hundred.weeks + "周," 
+                                     + live_hundred.months + "月," + live_hundred.years + "年";
+                    me.long_time = live_now.days / (live_now.days + live_hundred.days) * 100;
 
-                var ret = computDateDiff(today , birthDate);
-                console.log(ret);
-
-                var ret = computDateDiff(hundredYearsOldDate , today);
-                console.log(ret);
+                }, 300)
             }
+        },
+        showDatePicker: function() {
+
+            var me = this;
+            var today = new Date();
+            weui.datePicker({
+            start: today.getFullYear() - 150,
+            end: new Date().getFullYear(),
+            onChange: function (result) {
+                console.log(result);
+            },
+            onConfirm: function (result) {
+                me.age = result.join("/");
+            }
+        });
         }
 
     },

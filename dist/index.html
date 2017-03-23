@@ -9,13 +9,35 @@
 <body>
     <div id="app" class="container">
         <div class="weui-cells_title">年龄计算器</div>   
-        <p>输入您的出生日期:</p>
         <div class="page__bd page__bd_spacing">
-             <input v-model="age" placeholder="格式：20170101" class="weui-input" type="date"> 
+             <input v-model="age" placeholder="点击选择您的生日" class="weui-input" v-on:click="showDatePicker"> 
             <div class="button-sp-area">
                     <a href="javascript:;" class="weui-btn weui-btn_plain-primary" v-on:click="submitAge">确定</a>
             </div>
         </div>
+        <div class="result">
+            <p>
+                 </p><div class="weui-progress">
+                    <div class="weui-progress__bar">
+                        <div class="weui-progress__inner-bar js_progress" style="width: 30%"></div>
+                    </div>
+                </div>
+             <p></p>
+             <p class="title">您已经活了</p>
+             <p class="live-info">{{live_info}}</p>
+             <p class="title">距离100岁,还有</p>
+             <p class="can-live-info">{{can_live_info}}</p>
+             
+        </div>
+        <transition name="fade">
+        <div id="loadingToast" v-if="isActive">
+            <div class="weui-mask_transparent"></div>
+            <div class="weui-toast">
+                <i class="weui-loading weui-icon_toast"></i>
+                <p class="weui-toast__content">正在计算</p>
+            </div>
+        </div>
+         </transition>
     </div>
     <script src="https://res.wx.qq.com/open/libs/weuijs/1.0.0/weui.min.js"></script>
 <script type="text/javascript" src="main.v1.js"></script></body>
