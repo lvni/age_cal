@@ -11962,7 +11962,7 @@ var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
             var me = this;
             var today = new Date();
             weui.datePicker({
-            start: today.getFullYear() - 150,
+            start: today.getFullYear() - 70,
             end: new Date().getFullYear(),
             onChange: function (result) {
                 console.log(result);
