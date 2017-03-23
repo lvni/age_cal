@@ -11299,7 +11299,7 @@ exports = module.exports = __webpack_require__(7)(undefined);
 
 
 // module
-exports.push([module.i, "#app {\n  text-align: center;\n  font-size: 20px;\n  margin-top: 34%;\n}\n.page__bd,\n.result {\n  width: 60%;\n  margin: 0 auto;\n}\n.page__bd > input,\n.result > input {\n  margin: 25px 0 ;\n}\n.fade-enter-active,\n.fade-leave-active {\n  transition: opacity 0.5s;\n}\n.fade-enter,\n.fade-leave-active {\n  opacity: 0;\n}\n.result {\n  padding-top: 30px;\n  line-height: 48px;\n  text-align: left;\n}\n.result > .title {\n  font-size: 22px;\n  color: #1aad19;\n}\n", ""]);
+exports.push([module.i, "#app {\n  text-align: center;\n  font-size: 20px;\n  margin-top: 20%;\n}\n.page__bd,\n.result {\n  width: 80%;\n  margin: 0 auto;\n}\n.page__bd > input,\n.result > input {\n  margin: 25px 0 ;\n}\n.fade-enter-active,\n.fade-leave-active {\n  transition: opacity 0.5s;\n}\n.fade-enter,\n.fade-leave-active {\n  opacity: 0;\n}\n.result {\n  padding-top: 30px;\n  line-height: 48px;\n  text-align: left;\n}\n.result > .title {\n  font-size: 22px;\n  color: #1aad19;\n}\n", ""]);
 
 // exports
 
@@ -11940,12 +11940,13 @@ var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
                 setTimeout(function(){
                     me.isActive = false;
                     var live_now = computDateDiff(today , birthDate);
-                    me.live_info = live_now.days + "天," + live_now.weeks + "周," 
-                                 + live_now.months + "月," + live_now.years + "年";
+                    me.live_info = live_now.days + "天, " + live_now.weeks + "周, " 
+                                 + live_now.months + "月, " + live_now.years + "岁";
                     var live_hundred = computDateDiff(hundredYearsOldDate , today);
-                    me.can_live_info = live_hundred.days + "天," + live_hundred.weeks + "周," 
-                                     + live_hundred.months + "月," + live_hundred.years + "年";
+                    me.can_live_info = live_hundred.days + "天, " + live_hundred.weeks + "周, " 
+                                     + live_hundred.months + "月, " + live_hundred.years + "年";
                     me.long_time = live_now.days / (live_now.days + live_hundred.days) * 100;
+                    console.log(me.long_time);
                     me.show_result = true;
                 }, 300)
             }

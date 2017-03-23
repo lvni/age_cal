@@ -68,12 +68,13 @@ var app = new Vue({
                 setTimeout(function(){
                     me.isActive = false;
                     var live_now = computDateDiff(today , birthDate);
-                    me.live_info = live_now.days + "天," + live_now.weeks + "周," 
-                                 + live_now.months + "月," + live_now.years + "年";
+                    me.live_info = live_now.days + "天, " + live_now.weeks + "周, " 
+                                 + live_now.months + "月, " + live_now.years + "岁";
                     var live_hundred = computDateDiff(hundredYearsOldDate , today);
-                    me.can_live_info = live_hundred.days + "天," + live_hundred.weeks + "周," 
-                                     + live_hundred.months + "月," + live_hundred.years + "年";
+                    me.can_live_info = live_hundred.days + "天, " + live_hundred.weeks + "周, " 
+                                     + live_hundred.months + "月, " + live_hundred.years + "年";
                     me.long_time = live_now.days / (live_now.days + live_hundred.days) * 100;
+                    console.log(me.long_time);
                     me.show_result = true;
                 }, 300)
             }
