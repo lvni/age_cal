@@ -1,5 +1,6 @@
 import Vue from 'vue';
 require("../css/main.less");
+var bimg = require('../img/pic.jpg');
 const NotFound = { template: '<p>Page not found</p>' }
 const Home = { template: '<p>home page</p>' }
 const About = { template: '<p>about page</p>' }
@@ -7,7 +8,7 @@ const routes = {
   '/': Home,
   '/about': About
 }
-
+document.getElementById('cover').src = bimg;
 /**
  * 计算两个日期的天数差
  * @param {*} date_to 
@@ -42,6 +43,7 @@ var app = new Vue({
         long_time: 0,
         isActive: false,
         level_days: 0,
+        img:bimg,
         currentRoute: window.location.pathname
     },
     
