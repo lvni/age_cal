@@ -75,7 +75,7 @@ var app = new Vue({
                     me.isActive = false;
                     var live_now = computDateDiff(today , birthDate);
                     me.live_info = live_now.days + "天, " + live_now.weeks + "周, " 
-                                 + live_now.months + "月, " + live_now.years + "岁";
+                                 + live_now.months + "月, " + live_now.years + "年";
                     var live_hundred = computDateDiff(hundredYearsOldDate , today);
                     me.can_live_info = live_hundred.days + "天, " + live_hundred.weeks + "周, " 
                                      + live_hundred.months + "月, " + live_hundred.years + "年";

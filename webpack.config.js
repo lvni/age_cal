@@ -17,6 +17,7 @@ module.exports = {
             filename: "index.html",
             template: "src/html/index.html",
             inject: false,
+            favicon: "src/img/bitbug_favicon.ico",
             minify: {
                 removeComments:true,
                 collapseWhitespace:false,
@@ -27,14 +28,16 @@ module.exports = {
                 NODE_ENV: '"production"'
             }
         }),
-        
+        new webpack.optimize.UglifyJsPlugin(),
+
          //抽取公共第三方的库文件
         new webpack.optimize.CommonsChunkPlugin({
             name: 'vendor',
             minChunks: function(module) {
                 return module.context && module.context.indexOf('node_modules') !== -1;
             }
-        })
+        }),
+        new ExtractTextPlugin("style.css")
          
     ],
     resolve: {
@@ -46,11 +49,11 @@ module.exports = {
         loaders: [
                 {
                     test: /\.css$/,
-                    loader: 'style-loader!css-loader'
+                    loader: ExtractTextPlugin.extract({fallback:'style-loader', use:'css-loader'})
                 },
                 {
                     test: /\.less$/,
-                    loader: "style-loader!css-loader!less-loader"
+                    loader: ExtractTextPlugin.extract({fallback:'style-loader', use:'css-loader!less-loader'})
                 }
 
             ],
