@@ -8,7 +8,7 @@ const routes = {
   '/': Home,
   '/about': About
 }
-document.getElementById('cover').src = bimg;
+//document.getElementById('cover').src = bimg;
 /**
  * 计算两个日期的天数差
  * @param {*} date_to 
