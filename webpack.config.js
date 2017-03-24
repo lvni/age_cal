@@ -16,7 +16,7 @@ module.exports = {
         new HtmlwebpackPlugin({
             filename: "index.html",
             template: "src/html/index.html",
-            inject: "body",
+            inject: false,
             minify: {
                 removeComments:true,
                 collapseWhitespace:false,
@@ -27,15 +27,15 @@ module.exports = {
                 NODE_ENV: '"production"'
             }
         }),
-        /**
-         * 抽取公共第三方的库文件
+        
+         //抽取公共第三方的库文件
         new webpack.optimize.CommonsChunkPlugin({
             name: 'vendor',
             minChunks: function(module) {
                 return module.context && module.context.indexOf('node_modules') !== -1;
             }
         })
-         */
+         
     ],
     resolve: {
       alias: {
