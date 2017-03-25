@@ -84,6 +84,10 @@ var app = new Vue({
                     me.long_time = live_now.days / (live_now.days + live_hundred.days) * 100;
                     console.log(me.long_time);
                     me.show_result = true;
+                    document.querySelector("title").innerHTML = "我已经活了" + live_now.days + "天了，快来看看你活了多久吧";
+
+                    //统计年龄区间
+                    _czc.push(["_setCustomVar",'age',this.age,2]);
                 }, 300)
             }
         },
