@@ -20,7 +20,7 @@ module.exports = {
             favicon: "src/img/bitbug_favicon.ico",
             minify: {
                 removeComments:true,
-                collapseWhitespace:false,
+                collapseWhitespace:true,
             }
         }),
         new webpack.DefinePlugin({
